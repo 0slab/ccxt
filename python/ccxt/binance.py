@@ -796,7 +796,9 @@ class binance (Exchange):
         if priceIsRequired:
             if price is None:
                 raise InvalidOrder(self.id + ' createOrder method requires a price argument for a ' + type + ' order')
-            order['price'] = self.price_to_precision(symbol, price)
+            print("test_416")
+            forked_price = '{:.8f}'.format(price)
+            order['price'] = forked_price
         if timeInForceIsRequired:
             order['timeInForce'] = self.options['defaultTimeInForce']  # 'GTC' = Good To Cancel(default), 'IOC' = Immediate Or Cancel
         if stopPriceIsRequired:
